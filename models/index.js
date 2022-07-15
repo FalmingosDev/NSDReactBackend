@@ -34,6 +34,7 @@ db.Sequelize = Sequelize
 db.sequelize = sequelize
 
 db.products = require('./countryModel.js')(sequelize, DataTypes)
+db.products = require('./productModel.js')(sequelize, DataTypes)
 
 db.sequelize.sync({ force: false })
     .then(() => {
