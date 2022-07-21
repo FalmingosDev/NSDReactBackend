@@ -17,6 +17,9 @@ https://github.com/GaziAdib/Node-Express-Sequelize-React-FullStack-image-upload
 
 https://medium.com/swlh/build-your-first-api-with-express-generator-sequelize-and-cli-2f7494cc517b
 
+
+https://sequelize.org/docs/v6/other-topics/migrations/
+
 API End Point:
 
 Method: POST
