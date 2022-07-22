@@ -2,7 +2,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const Sequelize = require('sequelize');
+const {Sequelize, DataTypes} = require('sequelize');
 const basename = path.basename(__filename);
 const env = process.env.NODE_ENV || 'development';
 const config = require(__dirname + '/../config/config.json')[env];
@@ -33,5 +33,13 @@ Object.keys(db).forEach(modelName => {
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
+
+db.newo_user = require('./newo_user.js')(sequelize, DataTypes)
+
+
+db.sequelize.sync({ force: false })
+    .then(() => {
+        console.log('yes re-sync is done')
+    })
 
 module.exports = db;
