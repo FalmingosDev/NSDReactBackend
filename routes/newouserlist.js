@@ -2,15 +2,25 @@ var express = require('express');
 var router = express.Router();
 const newouserController = require('../controllers/newouserController.js');
 
-/* GET Country listing. */
-// router.get('/', function(req, res, next) {
-//     // res.send('Respond with a resource');
-//     // res.send(JSON.stringify(res));
-//     // console.log(res);
-//     // res.render('user', { title: 'Respond with a Country List' });
-//     router.get('/', countryController.getAllCountry);
-// });
+const auth = require("../middleware/auth");
 
-router.get('/', newouserController.getAllNewoUser);
+/* GET Country listing. */
+router.get('/', auth, function(req, res, next) {
+    res.send('Respond with a resource');
+    // res.send(newouserController.getAllNewoUser);
+    // console.log(res);
+    // res.render('user', { title: 'Respond with a Country List' });
+    // router.get('/', newouserController.getAllNewoUser);
+
+    //const usrlist = res.json(newouserController.getAllNewoUser);
+    //console.log(usrlist)
+    //... some code here
+    // data = whatever the JSON you want to hash 
+    // const token = generateAccessToken(data);
+    // res.json(token);
+    
+});
+
+// router.get('/', newouserController.getAllNewoUser);
 
 module.exports = router;

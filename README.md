@@ -24,6 +24,21 @@ Sequelize CLI ->  https://sequelize.org/docs/v6/other-topics/migrations/
 JWT in Express -> 1) https://www.geeksforgeeks.org/how-to-implement-jwt-authentication-in-express-js-app/
                   2) https://www.section.io/engineering-education/how-to-build-authentication-api-with-jwt-token-in-nodejs/
 
+
+Creating Middleware:
+
+            npm install dotenv (if not installed)
+            npm install jsonwebtoken
+
+            mkdir middleware
+            type nul > middleware/auth.js   (For creating new file)
+
+
+To Generate A SERECT KEY use the bellow command in cmd
+
+    node -e console.log(require('crypto').randomBytes(64).toString('hex'))
+
+
 API End Point:
 
 Method: POST
