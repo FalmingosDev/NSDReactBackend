@@ -1,9 +1,13 @@
 var express = require('express');
 var router = express.Router();
-const login = require('../controllers/auth/loginController');
+const loginController = require('../controllers/auth/loginController');
 
 const auth = require("../middleware/auth");
 
-router.get('/login', auth, function(req,res,next){
+/*router.post('/login', function(req,res,next){
     res.send('Respond with a login');
-})
+})*/
+
+router.post('/', auth, loginController.login);
+
+module.exports = router;

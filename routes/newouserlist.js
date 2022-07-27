@@ -5,8 +5,8 @@ const newouserController = require('../controllers/newouserController.js');
 const auth = require("../middleware/auth");
 
 /* GET Country listing. */
-router.get('/', auth, function(req, res, next) {
-    res.send('Respond with a resource');
+router.get('/', function(req, res, next) {
+    res.send('Respond with a userlist');
     // res.send(newouserController.getAllNewoUser);
     // console.log(res);
     // res.render('user', { title: 'Respond with a Country List' });
