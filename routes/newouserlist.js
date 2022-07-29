@@ -5,7 +5,7 @@ const newouserController = require('../controllers/newouserController.js');
 const auth = require("../middleware/auth");
 
 /* GET Country listing. */
-router.get('/', function(req, res, next) {
+/*router.get('/', function(req, res, next) {
     res.send('Respond with a userlist');
     // res.send(newouserController.getAllNewoUser);
     // console.log(res);
@@ -19,8 +19,8 @@ router.get('/', function(req, res, next) {
     // const token = generateAccessToken(data);
     // res.json(token);
     
-});
+});*/
 
-// router.get('/', newouserController.getAllNewoUser);
+router.get('/', auth, newouserController.getAllNewoUser);
 
 module.exports = router;
