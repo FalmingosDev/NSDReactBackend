@@ -1,45 +1,50 @@
-const dbConfig = require('../config/dbConfig.js');
+'use strict';
 
-const { Sequelize, DataTypes } = require('sequelize')
+const fs = require('fs');
+const path = require('path');
+const {Sequelize, DataTypes} = require('sequelize');
+const basename = path.basename(__filename);
+const env = process.env.NODE_ENV || 'test';
+const config = require(__dirname + '/../config/config.json')[env];
+const db = {};
 
-const sequelize = new Sequelize(
-    dbConfig.DB,
-    dbConfig.USER,
-    dbConfig.PASSWORD, {
-        host: dbConfig.HOST,
-        dialect: dbConfig.dialect,
-        operatorsAliases: false,
+let sequelize;
+if (config.use_env_variable) {
+  sequelize = new Sequelize(process.env[config.use_env_variable], config);
+} else {
+  sequelize = new Sequelize(config.database, config.username, config.password, config);
+}
 
-        pool: {
-            max: dbConfig.pool.max,
-            min: dbConfig.pool.min,
-            acquire: dbConfig.pool.acquire,
-            idle: dbConfig.pool.idle
-        }
-    }
-)
+fs
+  .readdirSync(__dirname)
+  .filter(file => {
+    return (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js');
+  })
+  /*.forEach(file => {
+    const model = require(path.join(__dirname, file))(sequelize, Sequelize.DataTypes);
+    db[model.name] = model;
+  });
 
-sequelize.authenticate()
-    .then(() => {
-        console.log('connected...')
-    })
-    .catch(err => {
-        console.log('Error = ' + err)
-    })
+Object.keys(db).forEach(modelName => {
+  if (db[modelName].associate) {
+    db[modelName].associate(db);
+  }
+});*/
 
+db.sequelize = sequelize;
+db.Sequelize = Sequelize;
 
-const db = {}
+db.newo_user = require('./newo_user.js')(sequelize, DataTypes)
+/*db.blog = require('./blog.js')(sequelize, DataTypes)
+db.category = require('./category.js')(sequelize, DataTypes)
+db.certification = require('./certification.js')(sequelize, DataTypes)
+db.country_list = require('./country_list.js')(sequelize, DataTypes)*/
+// db.creator = require('./creator.js')(sequelize, DataTypes)
 
-db.Sequelize = Sequelize
-db.sequelize = sequelize
-
-// db.country_list = require('./countryModel.js')(sequelize, DataTypes)
-db.newo_user = require('./newouserModel.js')(sequelize, DataTypes)
 
 db.sequelize.sync({ force: false })
     .then(() => {
         console.log('yes re-sync is done')
     })
 
-
-module.exports = db
+module.exports = db;

@@ -1,55 +1,60 @@
 'use strict';
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('newo_users', {
+    await queryInterface.createTable('hashtag_user_interest_txns', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      name: {
-        type: Sequelize.STRING
-      },
-      phone: {
-        type: Sequelize.STRING
-      },
-      email: {
-        type: Sequelize.STRING
-      },
-      country_code: {
-        type: Sequelize.STRING
-      },
-      password: {
-        type: Sequelize.STRING
-      },
-      profile_pic: {
-        type: Sequelize.STRING
-      },
-      otp: {
-        type: Sequelize.STRING
-      },
-      referral_code: {
-        type: Sequelize.STRING
-      },
-      wallet_coin: {
+      user_id: {
         type: Sequelize.INTEGER
       },
-      active_date: {
-        type: Sequelize.DATE
+      subscriber_id: {
+        type: Sequelize.INTEGER
       },
-      status: {
+      hashtag_interest: {
+        type: Sequelize.STRING
+      },
+      social_link1: {
+        type: Sequelize.STRING
+      },
+      social_link2: {
+        type: Sequelize.STRING
+      },
+      social_link3: {
+        type: Sequelize.STRING
+      },
+      social_link4: {
+        type: Sequelize.STRING
+      },
+      social_link5: {
+        type: Sequelize.STRING
+      },
+      social_link6: {
+        type: Sequelize.STRING
+      },
+      social_link7: {
+        type: Sequelize.STRING
+      },
+      social_link8: {
+        type: Sequelize.STRING
+      },
+      active_inactive: {
         type: Sequelize.CHAR
       },
-      created_ts: {
+      createdAt: {
+        allowNull: false,
         type: Sequelize.DATE
       },
-      updated_ts: {
+      updatedAt: {
+        allowNull: false,
         type: Sequelize.DATE
       }
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('newo_users');
+    await queryInterface.dropTable('hashtag_user_interest_txns');
   }
 };

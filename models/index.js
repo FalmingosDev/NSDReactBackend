@@ -20,7 +20,7 @@ fs
   .filter(file => {
     return (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js');
   })
-  .forEach(file => {
+  /*.forEach(file => {
     const model = require(path.join(__dirname, file))(sequelize, Sequelize.DataTypes);
     db[model.name] = model;
   });
@@ -29,12 +29,17 @@ Object.keys(db).forEach(modelName => {
   if (db[modelName].associate) {
     db[modelName].associate(db);
   }
-});
+});*/
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
-db.newo_user = require('./newo_user.js')(sequelize, DataTypes)
+/*db.newo_user = require('./newo_user.js')(sequelize, DataTypes)
+db.blog = require('./blog.js')(sequelize, DataTypes)
+db.category = require('./category.js')(sequelize, DataTypes)
+db.certification = require('./certification.js')(sequelize, DataTypes)
+db.country_list = require('./country_list.js')(sequelize, DataTypes)
+db.creator = require('./creator.js')(sequelize, DataTypes)*/
 
 
 db.sequelize.sync({ force: false })
