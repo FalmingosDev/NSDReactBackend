@@ -15,15 +15,18 @@ module.exports = {
         type: Sequelize.STRING
       },
       coupon_use: {
-        type: Sequelize.CHAR
+        type: Sequelize.CHAR(1),
+        defaultValue:"0"
       },
       createdAt: {
-        allowNull: false,
-        type: Sequelize.DATE
+        type: 'TIMESTAMP',
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
+        allowNull: false
       },
       updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE
+        type: 'TIMESTAMP',
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
+        allowNull: false
       }
     });
   },

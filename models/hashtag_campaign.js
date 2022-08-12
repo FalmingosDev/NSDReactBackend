@@ -27,7 +27,8 @@ module.exports = (sequelize, DataTypes) => {
     campaign_status: DataTypes.CHAR,
     campaign_spl_note: DataTypes.STRING,
     campaign_hashtag: DataTypes.STRING,
-    max_participate: DataTypes.INTEGER
+    max_participate: DataTypes.INTEGER,
+    campaign_description_link:DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'hashtag_campaign',

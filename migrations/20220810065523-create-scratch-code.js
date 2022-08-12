@@ -9,27 +9,30 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       prefix: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(45)
       },
       batch: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(45)
       },
       volume: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(45)
       },
       scratch_code: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(45)
       },
       is_used: {
-        type: Sequelize.CHAR
+        type: Sequelize.CHAR(1),
+        defaultValue: "0"
       },
       createdAt: {
-        allowNull: false,
-        type: Sequelize.DATE
+        type: 'TIMESTAMP',
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
+        allowNull: false
       },
       updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE
+        type: 'TIMESTAMP',
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
+        allowNull: false
       }
     });
   },

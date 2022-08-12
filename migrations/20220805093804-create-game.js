@@ -12,7 +12,8 @@ module.exports = {
         type: Sequelize.STRING
       },
       category: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        defaultValue: "2",
       },
       game_url: {
         type: Sequelize.TEXT
@@ -21,21 +22,25 @@ module.exports = {
         type: Sequelize.STRING
       },
       conversion_rate: {
-        type: Sequelize.DECIMAL
+        type: Sequelize.DECIMAL(10,2)
       },
       game_price: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        defaultValue: "0",
       },
       status: {
-        type: Sequelize.CHAR
+        type: Sequelize.CHAR(1),
+        defaultValue: "0"
       },
       createdAt: {
-        allowNull: false,
-        type: Sequelize.DATE
+        type: 'TIMESTAMP',
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
+        allowNull: false
       },
       updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE
+        type: 'TIMESTAMP',
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
+        allowNull: false
       }
     });
   },

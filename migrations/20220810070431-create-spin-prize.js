@@ -15,24 +15,26 @@ module.exports = {
         type: Sequelize.STRING
       },
       encode_prize: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(20)
       },
       qty: {
         type: Sequelize.INTEGER
       },
       picture: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(100)
       },
       newocoin_prize: {
         type: Sequelize.INTEGER
       },
       createdAt: {
-        allowNull: false,
-        type: Sequelize.DATE
+        type: 'TIMESTAMP',
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
+        allowNull: false
       },
       updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE
+        type: 'TIMESTAMP',
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
+        allowNull: false
       }
     });
   },

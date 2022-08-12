@@ -9,18 +9,21 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       episode_name: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(45)
       },
       episode_status: {
-        type: Sequelize.CHAR
+        type: Sequelize.CHAR(1),
+        defaultValue: "1"
       },
       createdAt: {
-        allowNull: false,
-        type: Sequelize.DATE
+        type: 'TIMESTAMP',
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
+        allowNull: false
       },
       updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE
+        type: 'TIMESTAMP',
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
+        allowNull: false
       }
     });
   },

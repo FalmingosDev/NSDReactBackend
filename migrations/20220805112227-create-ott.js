@@ -9,7 +9,8 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       category: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        defaultValue:"1"
       },
       name: {
         type: Sequelize.STRING
@@ -30,7 +31,8 @@ module.exports = {
         type: Sequelize.STRING
       },
       show_banner: {
-        type: Sequelize.CHAR
+        type: Sequelize.CHAR(1),
+        defaultValue: "0"
       },
       thumb: {
         type: Sequelize.STRING
@@ -51,21 +53,25 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       watch_coin: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        defaultValue: "0"
       },
       duration_sec: {
-        type: Sequelize.BIGINT
+        type: Sequelize.BIGINT(20)
       },
       status: {
-        type: Sequelize.CHAR
+        type: Sequelize.CHAR(1),
+        defaultValue: "1"
       },
       createdAt: {
-        allowNull: false,
-        type: Sequelize.DATE
+        type: 'TIMESTAMP',
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
+        allowNull: false
       },
       updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE
+        type: 'TIMESTAMP',
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
+        allowNull: false
       }
     });
   },

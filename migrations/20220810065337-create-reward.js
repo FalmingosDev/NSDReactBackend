@@ -9,16 +9,17 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       rewards_title: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(45)
       },
       rewards_desc: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(100)
       },
       reward_coin: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(45)
       },
       user_active_date: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        defaultValue: "0"
       },
       start_date: {
         type: Sequelize.DATE
@@ -27,15 +28,18 @@ module.exports = {
         type: Sequelize.DATE
       },
       status: {
-        type: Sequelize.CHAR
+        type: Sequelize.CHAR(1),
+        defaultValue:"1"
       },
       createdAt: {
-        allowNull: false,
-        type: Sequelize.DATE
+        type: 'TIMESTAMP',
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
+        allowNull: false
       },
       updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE
+        type: 'TIMESTAMP',
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
+        allowNull: false
       }
     });
   },

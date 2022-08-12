@@ -24,16 +24,16 @@ module.exports = {
         type: Sequelize.STRING
       },
       maritial_status: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(45)
       },
       user_country: {
         type: Sequelize.INTEGER
       },
       user_state: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(100)
       },
       user_city: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(100)
       },
       user_pincode: {
         type: Sequelize.INTEGER
@@ -42,18 +42,20 @@ module.exports = {
         type: Sequelize.STRING
       },
       user_landmark: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(100)
       },
       user_contact_number: {
         type: Sequelize.INTEGER
       },
       createdAt: {
-        allowNull: false,
-        type: Sequelize.DATE
+        type: 'TIMESTAMP',
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
+        allowNull: false
       },
       updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE
+        type: 'TIMESTAMP',
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
+        allowNull: false
       }
     });
   },

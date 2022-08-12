@@ -12,7 +12,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       blog_author: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(100)
       },
       author_img: {
         type: Sequelize.STRING
@@ -27,15 +27,18 @@ module.exports = {
         type: Sequelize.TEXT
       },
       blog_status: {
-        type: Sequelize.CHAR
+        type: Sequelize.CHAR(1),
+        defaultValue: "1",
       },
       createdAt: {
-        allowNull: false,
-        type: Sequelize.DATE
+        type: 'TIMESTAMP',
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
+        allowNull: false
       },
       updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE
+        type: 'TIMESTAMP',
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
+        allowNull: false
       }
     });
   },

@@ -12,7 +12,8 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       category: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        defaultValue:"1"
       },
       name: {
         type: Sequelize.STRING
@@ -45,7 +46,8 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       price: {
-        type: Sequelize.DECIMAL
+        type: Sequelize.DECIMAL(10,2),
+        defaultValue:"0.00"
       },
       start_date: {
         type: Sequelize.DATE
@@ -57,10 +59,10 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       use_amount: {
-        type: Sequelize.DECIMAL
+        type: Sequelize.DECIMAL(10,2)
       },
       reting: {
-        type: Sequelize.DECIMAL
+        type: Sequelize.DECIMAL(10,2)
       },
       views: {
         type: Sequelize.INTEGER
@@ -69,24 +71,28 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       duration_time: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(100)
       },
       year: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER(4)
       },
       show_banner: {
-        type: Sequelize.CHAR
+        type: Sequelize.CHAR(1),
+        defaultValue:"0"
       },
       status: {
-        type: Sequelize.CHAR
+        type: Sequelize.CHAR(1),
+        defaultValue:"P"
       },
       createdAt: {
-        allowNull: false,
-        type: Sequelize.DATE
+        type: 'TIMESTAMP',
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
+        allowNull: false
       },
       updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE
+        type: 'TIMESTAMP',
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
+        allowNull: false
       }
     });
   },

@@ -15,25 +15,25 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       price: {
-        type: Sequelize.DECIMAL
+        type: Sequelize.DECIMAL(10,2)
       },
       bank_ref_no: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(45)
       },
       order_id: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(45)
       },
       tracking_id: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(45)
       },
       txn_status: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(45)
       },
       paymode: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(45)
       },
       card_name: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(45)
       },
       txn_date: {
         type: Sequelize.DATE
@@ -42,12 +42,14 @@ module.exports = {
         type: Sequelize.TEXT
       },
       createdAt: {
-        allowNull: false,
-        type: Sequelize.DATE
+        type: 'TIMESTAMP',
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
+        allowNull: false
       },
       updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE
+        type: 'TIMESTAMP',
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
+        allowNull: false
       }
     });
   },

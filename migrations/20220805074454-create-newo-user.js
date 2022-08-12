@@ -9,45 +9,49 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       name: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(100)
       },
       phone: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER(15)
       },
       email: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(100)
       },
       profile_pic: {
         type: Sequelize.STRING
       },
       country_code: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(45)
       },
       password: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(20)
       },
       otp: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(45),
+        defaultValue: "0",
       },
       referral_code: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(45)
       },
       wallet_coin: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        defaultValue: "0",
       },
       active_date: {
         type: Sequelize.DATE
       },
       status: {
-        type: Sequelize.CHAR
+        type: Sequelize.CHAR(1)
       },
       createdAt: {
-        allowNull: false,
-        type: Sequelize.DATE
+        type: 'TIMESTAMP',
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
+        allowNull: false
       },
       updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE
+        type: 'TIMESTAMP',
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
+        allowNull: false
       }
     });
   },

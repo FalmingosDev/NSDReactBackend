@@ -12,27 +12,29 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       bank_name: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(45)
       },
       bank_ifsc: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(45)
       },
       bank_account_number: {
         type: Sequelize.INTEGER
       },
       bank_account_holder: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(45)
       },
       upi_id: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(45)
       },
       createdAt: {
-        allowNull: false,
-        type: Sequelize.DATE
+        type: 'TIMESTAMP',
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
+        allowNull: false
       },
       updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE
+        type: 'TIMESTAMP',
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
+        allowNull: false
       }
     });
   },
