@@ -1,6 +1,7 @@
 # NSDReactBackend
 Node Backend for React
 
+nodemon npm start
 
 npm init
 

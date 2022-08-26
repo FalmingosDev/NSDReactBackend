@@ -21,7 +21,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       campaign_reward: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
       reward_value: {
         type: Sequelize.STRING

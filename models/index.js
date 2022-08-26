@@ -34,12 +34,15 @@ Object.keys(db).forEach(modelName => {
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
-/*db.newo_user = require('./newo_user.js')(sequelize, DataTypes)
 db.blog = require('./blog.js')(sequelize, DataTypes)
-db.category = require('./category.js')(sequelize, DataTypes)
-db.certification = require('./certification.js')(sequelize, DataTypes)
+db.cartification = require('./cartification.js')(sequelize, DataTypes)
 db.country_list = require('./country_list.js')(sequelize, DataTypes)
-db.creator = require('./creator.js')(sequelize, DataTypes)*/
+
+db.newo_user = require('./newo_user.js')(sequelize, DataTypes)
+
+// db.category = require('./category.js')(sequelize, DataTypes)
+// db.certification = require('./certification.js')(sequelize, DataTypes)
+// db.creator = require('./creator.js')(sequelize, DataTypes)
 
 
 db.sequelize.sync({ force: false })

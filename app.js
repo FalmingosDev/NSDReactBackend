@@ -10,6 +10,8 @@ var newouserListRouter = require('./routes/newouserlist');
 var loginRouter = require('./routes/login');
 var userDataRouter = require('./routes/userdata');
 var registerRouter = require('./routes/register');
+var blogRouter = require('./routes/blog');
+var cartificationRouter = require('./routes/cartification');
 
 var app = express();
 
@@ -24,11 +26,18 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/countrylist', countryListRouter);
+
 app.use('/newouserlist', newouserListRouter);
 app.use('/login', loginRouter);
 app.use('/userdata', userDataRouter);
 app.use('/register', registerRouter);
+
+app.use('/blogs', blogRouter);
+app.use('/blogs/:id', blogRouter);
+
+app.use('/cartification', cartificationRouter);
+
+app.use('/countrylist', countryListRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

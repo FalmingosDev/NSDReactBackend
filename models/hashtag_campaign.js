@@ -18,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
     campaign_name: DataTypes.STRING,
     campaign_objective: DataTypes.TEXT,
     client_id: DataTypes.INTEGER,
-    campaign_reward: DataTypes.INTEGER,
+    campaign_reward: DataTypes.STRING,
     reward_value: DataTypes.STRING,
     campaign_social: DataTypes.STRING,
     campaign_image: DataTypes.STRING,
