@@ -1,0 +1,3 @@
+Host : node-database.cqtyulrshsvk.ap-southeast-1.rds.amazonaws.com
+Master username: nodedbnewo
+Master password : Node#22newdb-Newo
