@@ -106,3 +106,12 @@ yarn global add nodemon
 "scripts": {
     "serve": "nodemon server.js"
   },
+
+
+# AWS-Node   
+
+https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Tutorials.WebServerDB.CreateWebServer.html
+
+https://ourcodeworld.com/articles/read/977/how-to-deploy-a-node-js-application-on-aws-ec2-server
+
+https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/nodejs-devenv.html
