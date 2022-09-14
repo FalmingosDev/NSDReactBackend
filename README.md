@@ -115,3 +115,15 @@ https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Tutorials.WebServerD
 https://ourcodeworld.com/articles/read/977/how-to-deploy-a-node-js-application-on-aws-ec2-server
 
 https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/nodejs-devenv.html
+
+
+
+# running Node on background in AWS Ec2
+
+running Node on background : screen npm start
+
+Before you invoke Node.js, run the command: screen
+
+This will create a persistent environment which will allow your process to keep running after you disconnect.
+
+When you reconnect, you can use this command to reconnect to that environment: screen -r
