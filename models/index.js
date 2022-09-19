@@ -39,6 +39,8 @@ db.cartification = require('./cartification.js')(sequelize, DataTypes)
 db.country_list = require('./country_list.js')(sequelize, DataTypes)
 
 db.newo_user = require('./newo_user.js')(sequelize, DataTypes)
+db.referral_transaction = require('./referral_transaction.js')(sequelize, DataTypes)
+db.wallet_detail = require('./wallet_details.js')(sequelize, DataTypes)
 
 // db.category = require('./category.js')(sequelize, DataTypes)
 // db.certification = require('./certification.js')(sequelize, DataTypes)

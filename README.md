@@ -21,6 +21,9 @@ npm i --save express sequelize cors mysql2 nodemon  (--save for production level
 
 # Sequelize CLI ->  https://sequelize.org/docs/v6/other-topics/migrations/
 
+# Sequelize Notes:
+    https://sebhastian.com/sequelize-where/
+
 # Creating the first Model (and Migration)
     npx sequelize-cli model:generate --name User --attributes firstName:string,lastName:string,email:string
     npx sequelize-cli db:migrate
@@ -127,3 +130,7 @@ Before you invoke Node.js, run the command: screen
 This will create a persistent environment which will allow your process to keep running after you disconnect.
 
 When you reconnect, you can use this command to reconnect to that environment: screen -r
+
+To see list of running process : screen -ls
+
+To kill a running process : screen -X -S [session # you want to kill] kill
