@@ -9,6 +9,7 @@ const { Op } = require("sequelize");
 const newo_user = db.newo_user
 const referral_transaction = db.referral_transaction
 const wallet_detail = db.wallet_detail
+const user_subscription = db.user_subscription
 
 let sequelize;
 if (config.use_env_variable) {
@@ -19,33 +20,47 @@ if (config.use_env_variable) {
 
 db.sequelize = Sequelize;
 
-// 1. get all Country
+// 1. get user data
 const getNewoUserData = async(req, res) => {
     let userData = req.headers['x-access-token']; 
     // const taokenData = tokenDecode.parseJwt(userData); --> Not Working
-    const taokenData = parseJwt(userData);
+    const tokenData = parseJwt(userData);
 
     let newouser = await newo_user.findOne({
-        where:{ id: taokenData.userid},
-       attributes : ['id', 'name', 'phone', 'email', 'country_code', 'password', 'profile_pic', 'Otp', 'referral_code', 'wallet_coin', 'active_date', 'status']
+        where:{ id: tokenData.userid},
+        attributes : ['id', 'name', 'phone', 'email', 'country_code', 'password', 'profile_pic', 'Otp', 'referral_code', 'wallet_coin', 'active_date', 'status']
     })
 
     let referrer_point = await referral_transaction.findOne({
-		where:{ user_id: taokenData.userid},
-		attributes: [[sequelize.fn('sum', sequelize.col('referrer_point')), 'referrer_point']],
+		    where:{ user_id: tokenData.userid},
+		    attributes: [[sequelize.fn('sum', sequelize.col('referrer_point')), 'referrer_point']],
         group: ['user_id'],
-	});
+	  });
 
     let reward_point = await wallet_detail.findOne({
-        where:{[Op.or]: [{wallet_action_id: 4},{wallet_action_id: 10}], [Op.and]: [{user_id: taokenData.userid}]},
-		attributes: [[sequelize.fn('sum', sequelize.col('wallet_point')), 'reward_point']],
+        where:{[Op.or]: [{wallet_action_id: 4},{wallet_action_id: 10}], [Op.and]: [{user_id: tokenData.userid}]},
+		    attributes: [[sequelize.fn('sum', sequelize.col('wallet_point')), 'reward_point']],
         group: ['user_id'],
-	});
+	  });
 
     user_data = {"user": newouser, "referrer_point": referrer_point, "reward_point": reward_point}
 
     res.status(200).send(user_data)
 }  
+
+
+// 2. check user subscription
+const checkSubscriber = async(req, res) => {
+    let userData = req.headers['x-access-token'];
+    const tokenData = parseJwt(userData);
+    let count = await user_subscription.count({
+      where: { newo_user_id: tokenData.userid , [Op.and]: [{subscription_end_date: { [Op.gte]: new Date() }}]},
+    });
+
+    user_chk = {"is_subscriber": count}
+
+    res.status(200).send(user_chk)
+}
 
 
 /*********** Temporary Solution Start *************/
@@ -59,5 +74,6 @@ function parseJwt(token) {
 /*********** Temporary Solution End *************/
 
 module.exports = {
-    getNewoUserData
+    getNewoUserData,
+    checkSubscriber
 }

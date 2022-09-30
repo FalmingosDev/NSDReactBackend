@@ -9,9 +9,11 @@ var countryListRouter = require('./routes/countrylist');
 var newouserListRouter = require('./routes/newouserlist');
 var loginRouter = require('./routes/login');
 var userDataRouter = require('./routes/userdata');
+var checkSubscriberRouter = require('./routes/checksubscriber');
 var registerRouter = require('./routes/register');
 var blogRouter = require('./routes/blog');
 var cartificationRouter = require('./routes/cartification');
+var userrewardRouter = require('./routes/userreward');
 
 var app = express();
 
@@ -38,6 +40,9 @@ app.use('/blogs/:id', blogRouter);
 app.use('/cartification', cartificationRouter);
 
 app.use('/countrylist', countryListRouter);
+
+app.use('/checksubscriber', checkSubscriberRouter);
+app.use('/rewardlist', userrewardRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
