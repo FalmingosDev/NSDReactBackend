@@ -46,6 +46,8 @@ db.user_subscription = require('./user_subscription')(sequelize, DataTypes)
 db.reward = require('./reward')(sequelize, DataTypes)
 db.user_reward = require('./user_reward')(sequelize, DataTypes)
 
+db.wallet_detail = require('./wallet_details')(sequelize, DataTypes)
+
 // db.category = require('./category.js')(sequelize, DataTypes)
 // db.certification = require('./certification.js')(sequelize, DataTypes)
 // db.creator = require('./creator.js')(sequelize, DataTypes)

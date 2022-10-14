@@ -14,6 +14,7 @@ var registerRouter = require('./routes/register');
 var blogRouter = require('./routes/blog');
 var cartificationRouter = require('./routes/cartification');
 var userrewardRouter = require('./routes/userreward');
+var activaterewardRouter = require('./routes/activatereward');
 
 var app = express();
 
@@ -43,6 +44,8 @@ app.use('/countrylist', countryListRouter);
 
 app.use('/checksubscriber', checkSubscriberRouter);
 app.use('/rewardlist', userrewardRouter);
+
+app.use('/activatereward', activaterewardRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

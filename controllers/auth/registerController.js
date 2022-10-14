@@ -5,7 +5,6 @@ const newo_user = db.newo_user
 
 
 const registerUser = async(req, res) => {
-    console.log(req);
     let userData = {
         name: req.body.title,
         phone: req.body.price,
